@@ -14,7 +14,7 @@ function getPlayerChoice(){
         return choice;
         }
         console.log('Incorrect Input, Please Choose Rock, Paper, or Scissors')
-        getPlayerChoice();
+        return getPlayerChoice();
     }
 
 function validateChoice(choice){
@@ -22,18 +22,20 @@ function validateChoice(choice){
 }
 
 function playRound(playerSelection, computerSelection){
-    console.log('Player Choice : ',playerSelection,'| Computer Choice : ', computerSelection)
+
+    console.log('Player Choice : ',playerSelection,'| Computer Choice : ', computerSelection);
+
     if(playerSelection === computerSelection){
         console.log( `You both chose ${playerSelection}. It's a draw`);
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors' || 
-    playerSelection === 'paper' && computerSelection === 'rock' ||
-    playerSelection === 'scissors' && computerSelection === 'paper'){
-        console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`)
-        playerScore ++;}
+        playerSelection === 'paper' && computerSelection === 'rock' ||
+        playerSelection === 'scissors' && computerSelection === 'paper'){
+            console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`)
+            playerScore ++;}
     else {
         console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Lose!`)
-    compScore ++;}
+        compScore ++;}
 
 }
 
