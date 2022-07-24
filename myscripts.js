@@ -1,6 +1,7 @@
 compScore = 0
 playerScore = 0
 
+
 let options = ['rock', 'paper', 'scissors']
 
 function getComputerChoice(){
@@ -17,8 +18,8 @@ function getPlayerChoice(){
     }
     else if(check == false){
         console.log( 'Please choose Rock Paper or Scissors'); 
-        getPlayerChoice();
-        return;
+        let choice = prompt('Choose Rock, Paper or Scissors', 'Rock, Paper, Scissors').toLowerCase();
+        return choice;
    
     }else return choice
 }
