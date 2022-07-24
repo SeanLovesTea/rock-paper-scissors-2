@@ -16,7 +16,7 @@ function getPlayerChoice(){
         getPlayerChoice();
     }
     else if(check == false){
-        alert( 'Please choose Rock Paper or Scissors'); 
+        console.log( 'Please choose Rock Paper or Scissors'); 
         getPlayerChoice();
         return;
    
@@ -30,31 +30,31 @@ function validateChoice(choice){
 function playRound(playerSelection, computerSelection){
     console.log(playerSelection, computerSelection)
     if(playerSelection === computerSelection){
-        alert( `You both chose ${playerSelection}. It's a draw`);
+        console.log( `You both chose ${playerSelection}. It's a draw`);
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors' || 
     playerSelection === 'paper' && computerSelection === 'rock' ||
     playerSelection === 'scissors' && computerSelection === 'paper'){
-        alert(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`)
+        console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`)
         playerScore ++;}
     else {
-    alert(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Lose!`)
+        console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Lose!`)
     compScore ++;}
 
 }
 
 function trackScore(){
-    alert(`The Score is,
+    console.log(`The Score is,
     Player : ${playerScore} 
     Computer: ${compScore}`);
 }
 
 function declareWinner(){
     if(playerScore > compScore){
-        alert(`The Final Score is Player:${playerScore} vs Computer:${compScore} You WIN!`)
+        console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} You WIN!`)
     }else if (playerScore < compScore) {
-        alert(`The Final Score is Player:${playerScore} vs Computer:${compScore} You Lose!`)
-    }else alert(`The Final Score is Player:${playerScore} vs Computer:${compScore} It's a Draw Game`)
+        console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} You Lose!`)
+    }else console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} It's a Draw Game`)
 }
 function game(){
     for(let i = 0; i < 5; i++){
