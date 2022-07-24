@@ -1,11 +1,8 @@
 compScore = 0
 playerScore = 0
-
-
-let options = ['rock', 'paper', 'scissors']
+const options = ['rock', 'paper', 'scissors']
 
 function getComputerChoice(){
-    
     let randomNumber = Math.floor(Math.random()* options.length);
     return options[randomNumber]
 }
@@ -13,23 +10,19 @@ function getPlayerChoice(){
     let choice = prompt('Choose Rock, Paper or Scissors', 'Rock, Paper, Scissors').toLowerCase();
     let check = validateChoice(choice);
     console.log(choice)
-    if(choice == null){
+    if (check){
+        return choice;
+        }
+        console.log('Incorrect Input, Please Choose Rock, Paper, or Scissors')
         getPlayerChoice();
     }
-    else if(check == false){
-        console.log( 'Please choose Rock Paper or Scissors'); 
-        let choice = prompt('Choose Rock, Paper or Scissors', 'Rock, Paper, Scissors').toLowerCase();
-        return choice;
-   
-    }else return choice
-}
 
 function validateChoice(choice){
     return options.includes(choice);
 }
 
 function playRound(playerSelection, computerSelection){
-    console.log(playerSelection, computerSelection)
+    console.log('Player Choice : ',playerSelection,'| Computer Choice : ', computerSelection)
     if(playerSelection === computerSelection){
         console.log( `You both chose ${playerSelection}. It's a draw`);
     }
@@ -59,9 +52,9 @@ function declareWinner(){
 }
 function game(){
     for(let i = 0; i < 5; i++){
-    const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection)
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
     trackScore();}
     declareWinner();
 }
