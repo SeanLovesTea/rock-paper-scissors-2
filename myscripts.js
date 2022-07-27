@@ -1,63 +1,83 @@
-compScore = 0
-playerScore = 0
 const options = ['rock', 'paper', 'scissors']
+const btn = document.querySelectorAll('button');
+const playerPoints = document.querySelector('.player-score');
+const compPoints = document.querySelector('.comp-score');
+const playerChoice = document.querySelector('.player-choice');
+const compChoice = document.querySelector('.comp-choice');
+const result = document.querySelector('.result');
+const playAgain = document.querySelector('.play-again')
+//const btnContainer = document.getElementsByClassName('.buttons-container')
 
+let compScore = 0;
+let playerScore = 0;
+let playerSelection ;
+
+btn.forEach((btn) => {
+    btn.addEventListener("click", () =>{
+        let playerSelection = btn.id
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection,computerSelection)
+    })  
+});
+
+function getPlayerChoice(e){
+    return this.id
+}
 function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()* options.length);
-    return options[randomNumber]
-}
-function getPlayerChoice(){
-    let choice = prompt('Choose Rock, Paper or Scissors', 'Rock, Paper, Scissors').toLowerCase();
-    let check = validateChoice(choice);
-    console.log(choice)
-    if (check){
-        return choice;
-        }
-        console.log('Incorrect Input, Please Choose Rock, Paper, or Scissors')
-        return getPlayerChoice();
-    }
-
-function validateChoice(choice){
-    return options.includes(choice);
+    choice = options[randomNumber]
+    return choice; 
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection,computerSelection){
+   
+    playerChoice.textContent = `${playerSelection}`
+    compChoice.textContent = `${computerSelection}`
+    console.log(playerSelection, computerSelection)
 
-    console.log('Player Choice : ',playerSelection,'| Computer Choice : ', computerSelection);
+    result.textContent = `Player Choice : ${playerSelection} || ${computerSelection} : Computer Choice  `;
 
     if(playerSelection === computerSelection){
-        console.log( `You both chose ${playerSelection}. It's a draw`);
+        result.textContent =  `You both chose ${playerSelection}. It's a draw`;
+    
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors' || 
         playerSelection === 'paper' && computerSelection === 'rock' ||
         playerSelection === 'scissors' && computerSelection === 'paper'){
-            console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`)
-            playerScore ++;}
+            result.textContent = `You chose ${playerSelection} and the Computer chose ${computerSelection} You Win!`;
+            playerScore++
+            }
     else {
-        console.log(`You chose ${playerSelection} and the Computer chose ${computerSelection} You Lose!`)
-        compScore ++;}
-
+        result.textContent =`You chose ${playerSelection} and the Computer chose ${computerSelection} You Lose!`;
+        compScore++
+        }
+        declareWinner();
+        trackScore();
 }
 
 function trackScore(){
-    console.log(`The Score is,
-    Player : ${playerScore} 
-    Computer: ${compScore}`);
+    playerPoints.textContent = `${playerScore}`
+    compPoints.textContent =`${compScore}`
+}
+function removeEventTimer(){
+    btn.forEach((btn) => {
+        btn.addEventListener("click", () =>{
+            // let playerSelection = btn.id
+            // let computerSelection = getComputerChoice();
+            // playRound(playerSelection,computerSelection)
+        })  
+    });
 }
 
+function addHiddenClass(){
+    document.getElementById("buttons-container").style.display = "none";
+}
 function declareWinner(){
-    if(playerScore > compScore){
-        console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} You WIN!`)
-    }else if (playerScore < compScore) {
-        console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} You Lose!`)
-    }else console.log(`The Final Score is Player:${playerScore} vs Computer:${compScore} It's a Draw Game`)
+    if(playerScore >= 5 ){
+        
+        result.textContent =`The Final Score is Player:${playerScore} vs Computer:${compScore} You WIN!`;
+    }else if (compScore >= 5) {
+        
+        result.textContent =`The Final Score is Player:${playerScore} vs Computer:${compScore} You Lose!`;
+    }
 }
-function game(){
-    for(let i = 0; i < 5; i++){
-    let playerSelection = getPlayerChoice();
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    trackScore();}
-    declareWinner();
-}
-game();
