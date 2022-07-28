@@ -1,0 +1,30 @@
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display:flex; 
+    justify-content: space-between;
+    max-width:500px;
+    background-color: antiquewhite;
+    margin: 24px;
+
+}
+
+.buttons-container{
+    padding: 24px;
+}
+button{
+    width: 142px;
+    padding:16px;
+    margin:16px;
+}
+.play-container{
+    display:none;
+}
+.hidden{
+    display:none;
+}
