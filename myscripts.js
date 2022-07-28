@@ -6,16 +6,24 @@ const playerChoice = document.querySelector('.player-choice');
 const compChoice = document.querySelector('.comp-choice');
 const result = document.querySelector('.result');
 const playAgain = document.querySelector('.play-again')
+const muteBtn = document.querySelector('.mute')
 const btnContainer = document.getElementsByClassName('.buttons-container')
 
 let compScore = 0;
 let playerScore = 0;
+
+// document.getElementsByClassName('.player-choice').classList.add('.rock');
+function audioPlay() {
+    let audio = document.getElementById("audio");
+    audio.play();
+  }
 
 btn.forEach((btn) => {
     btn.addEventListener("click", () =>{
         if(playerScore == 5 || compScore == 5){
             return
         }
+        audioPlay()
         let playerSelection = btn.id
         let computerSelection = getComputerChoice();
         playRound(playerSelection,computerSelection)
@@ -31,9 +39,14 @@ function getComputerChoice(){
     return choice; 
 }
 
+function imageChoice(){
+    
+}
+
 function playRound(playerSelection,computerSelection){
    
     playerChoice.textContent = `${playerSelection}`
+    playerChoice.classList.add('.rock')
     compChoice.textContent = `${computerSelection}`
     console.log(playerSelection, computerSelection)
 

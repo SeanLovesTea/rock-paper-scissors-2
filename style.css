@@ -21,6 +21,9 @@ body{
     flex-direction: column;
     width: 60vw;
     height: 400px;
+    background-image: url('images/background.png');
+    background-size: 100% 100%;
+    
 }
 .box{
     border: black solid 2px;
@@ -31,6 +34,8 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 16px;
+    margin-right:16px;
 }
 .scores{
     display:flex;
@@ -41,12 +46,22 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color:lightgrey;
+    
+    
 }
-.player-choice, .player-score{
+.player-score{
     margin-right:16px;
 }
-.comp-choice, .comp-score{
+.choice-half{
+    width:40%;
+}
+.player-choice,.comp-choice{
+    width:100px;
+    height:75px;
+
+}
+
+.comp-score{
     margin-left:16px;
 }
 
@@ -75,3 +90,13 @@ button{
     align-items: center;
     justify-content: center;
 }
+/* .rock{
+    background-image: url('images/rps-rock.svg');
+    background-size: cover;
+}
+.paper{
+    background-image: url('images/rps-paper.svg')
+}
+.scissors{
+    background-image: url('images/rps-sci.svg')
+} */
