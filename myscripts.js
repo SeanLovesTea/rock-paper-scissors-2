@@ -1,19 +1,21 @@
 const options = ['rock', 'paper', 'scissors']
-const btn = document.querySelectorAll('button');
+const btn = document.querySelectorAll('.option-buttons');
 const playerPoints = document.querySelector('.player-score');
 const compPoints = document.querySelector('.comp-score');
 const playerChoice = document.querySelector('.player-choice');
 const compChoice = document.querySelector('.comp-choice');
 const result = document.querySelector('.result');
 const playAgain = document.querySelector('.play-again')
-//const btnContainer = document.getElementsByClassName('.buttons-container')
+const btnContainer = document.getElementsByClassName('.buttons-container')
 
 let compScore = 0;
 let playerScore = 0;
-let playerSelection ;
 
 btn.forEach((btn) => {
     btn.addEventListener("click", () =>{
+        if(playerScore == 5 || compScore == 5){
+            return
+        }
         let playerSelection = btn.id
         let computerSelection = getComputerChoice();
         playRound(playerSelection,computerSelection)
@@ -59,19 +61,7 @@ function trackScore(){
     playerPoints.textContent = `${playerScore}`
     compPoints.textContent =`${compScore}`
 }
-function removeEventTimer(){
-    btn.forEach((btn) => {
-        btn.addEventListener("click", () =>{
-            // let playerSelection = btn.id
-            // let computerSelection = getComputerChoice();
-            // playRound(playerSelection,computerSelection)
-        })  
-    });
-}
 
-function addHiddenClass(){
-    document.getElementById("buttons-container").style.display = "none";
-}
 function declareWinner(){
     if(playerScore >= 5 ){
         
@@ -81,3 +71,17 @@ function declareWinner(){
         result.textContent =`The Final Score is Player:${playerScore} vs Computer:${compScore} You Lose!`;
     }
 }
+function resetGame(){
+    playerScore = 0;
+    compScore = 0;
+    playerPoints.textContent= '0';
+    compPoints.textContent='0';
+    playerChoice.textContent='';
+    compChoice.textContent='';
+    result.textContent='Choose Rock Paper or Scissors to start the game!';
+}
+playAgain.addEventListener('click', () => {
+    resetGame();
+}
+);
+

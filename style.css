@@ -4,7 +4,10 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.main-column{
+    display: flex;
+    flex-direction: row;
+}
 .container{
     display:flex; 
     justify-content: space-between;
@@ -12,6 +15,39 @@ body{
     background-color: antiquewhite;
     margin: 24px;
 
+}
+.arena{
+    display:flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 400px;
+}
+.box{
+    border: black solid 2px;
+    padding:8px;
+}
+.score-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.scores{
+    display:flex;
+    flex-direction: row;
+}
+.choice-container{
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color:lightgrey;
+}
+.player-choice, .player-score{
+    margin-right:16px;
+}
+.comp-choice, .comp-score{
+    margin-left:16px;
 }
 
 .buttons-container{
@@ -22,9 +58,20 @@ button{
     padding:16px;
     margin:16px;
 }
-.play-container{
-    display:none;
+.left{
+    margin-right:auto;
+    
 }
-.hidden{
-    display:none;
+.right{
+    margin-left:auto;
+}
+.result{
+    font-size: 36px;
+    padding:16px;
+    text-align: center;
+}
+.play-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }

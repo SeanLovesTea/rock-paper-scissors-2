@@ -11,34 +11,58 @@
 <body>  
     <h1>Welcome to Rock Paper Scissors</h1>
 
-    <div class="container">
-        <div >Player Score</div>
-        <div class="player-score">0</div>
-        <div>-</div>
-        <div class="comp-score">0</div>
-        <div>Computer Score</div>
+<div class="main-column">
+
+    <div class="left-container">
+
+        <div class="buttons-container">
+
+            <button class="option-buttons" id="rock"> Choose Rock</button>
+            <button class="option-buttons" id="paper">Choose Paper</button>
+            <button class="option-buttons" id="scissors">Choose Scissors</button>
+        </div>
     </div>
 
-    <div class="container">
-        <div>Your Choice</div>
-        <div class="player-choice">Rock</div>
-        <div class="comp-choice">Rock</div>
-        <div>Computer Choice</div>
-    </div>
+    <div class="mid-container">
+        
+        <div class="arena box">
+           
+            <div class="score-container">
+                <div class="left box">Player Score</div>
+                <div class="scores">
+                    <div class="player-score box">0</div>
+                    <div class="comp-score box">0</div>
+                </div>
+                <div class="right box">Computer Score</div>
+            </div>
+            
+            <div class="choice-container">
+                <div>Your Choice</div>
+                <div class="player-choice box">Rock</div>
+                <div class="comp-choice box">Rock</div>
+                <div>Computer Choice</div>
+            </div>
+
+        </div>
+
+        <div class="result">Choose Rock Paper or Scissors to start the game!
+        </div>
+
+        <div class="play-container">
+            <button class="play-again">Play Again</button>
+        </div>
     
-    <div class="result">Rock Beats Paper You win!</div>
-
-    <div class="play-container">
-        <button class="play-again">Play Again</button>
     </div>
 
-    <div class="buttons-container">
-        <button id="rock"> Choose Rock</button>
-        <button id="paper">Choose Paper</button>
-        <button id="scissors">Choose Scissors</button>
+    <div class="right-container">
+        <div class="buttons-container">
+            <button id="rock"> Choose Rock</button>
+            <button id="paper">Choose Paper</button>
+            <button id="scissors">Choose Scissors</button>
+        </div>
     </div>
 
-    
-    
+</div>
+
 </body>
 </html>
